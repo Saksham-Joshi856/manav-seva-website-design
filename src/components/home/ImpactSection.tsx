@@ -3,7 +3,7 @@ import { Calendar, Users, Award, Heart } from "lucide-react";
 const stats = [
   {
     icon: Calendar,
-    value: "15+",
+    value: "3+",
     label: "Years of Service",
     description: "Serving the elderly since 2008",
   },
@@ -40,7 +40,7 @@ export function ImpactSection() {
             Making a Real Difference
           </h2>
           <p className="text-primary-foreground/80 text-lg">
-            Every number represents a life touched, a smile brought, and a family comforted 
+            Every number represents a life touched, a smile brought, and a family comforted
             knowing their loved ones are in safe hands.
           </p>
         </div>

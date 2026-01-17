@@ -1,82 +1,71 @@
 import { Layout } from "@/components/layout/Layout";
-import { Award, Calendar, Trophy } from "lucide-react";
+import { Award, Trophy } from "lucide-react";
 import awardImage from "@/assets/award-ceremony.jpg";
 
+/* Achievements & Recognitions */
 const achievements = [
   {
-    year: "2023",
-    title: "Best NGO Award - Pune District",
-    description: "Recognized by Pune Municipal Corporation for outstanding elderly care services.",
-    type: "award",
-  },
-  {
-    year: "2022",
-    title: "Certificate of Excellence",
-    description: "Awarded by Maharashtra State Social Welfare Department.",
-    type: "certificate",
+    year: "2020",
+    title: "Organisation Registered",
+    description:
+      "Manavta Hitay Organisation was formally registered and began structured welfare activities in Pune district.",
   },
   {
     year: "2021",
-    title: "Community Service Recognition",
-    description: "Honored by local Rotary Club for 10+ years of community service.",
-    type: "recognition",
+    title: "Social Welfare Initiatives Expanded",
+    description:
+      "Expanded elderly care, shelter support, and community welfare programs across Pimpri-Chinchwad and nearby regions.",
   },
   {
-    year: "2020",
-    title: "Healthcare Excellence Award",
-    description: "Acknowledged for maintaining high standards during the pandemic.",
-    type: "award",
+    year: "2022",
+    title: "Healthcare & Rehabilitation Support",
+    description:
+      "Strengthened medical assistance, rehabilitation support, and partnerships with local healthcare providers.",
   },
   {
-    year: "2018",
-    title: "10 Years of Service Milestone",
-    description: "Celebrated a decade of serving the elderly community in Pune.",
-    type: "milestone",
-  },
-  {
-    year: "2015",
-    title: "NGO of the Year - Pimpri-Chinchwad",
-    description: "Recognized as the leading elderly care organization in the region.",
-    type: "award",
+    year: "2023",
+    title: "Ongoing Community Service",
+    description:
+      "Continued providing shelter, care, food, and emotional support to elderly and vulnerable individuals.",
   },
 ];
 
-const milestones = [
-  { year: "2008", event: "Foundation of Manav Seva Chatra with 5 residents" },
-  { year: "2010", event: "Expanded to new facility with capacity for 25 residents" },
-  { year: "2013", event: "Launched medical care program with hospital tie-ups" },
-  { year: "2016", event: "Reached 100+ elders served milestone" },
-  { year: "2019", event: "Opened new wing with modern amenities" },
-  { year: "2023", event: "Currently serving 50+ residents with dedicated care" },
+/* Timeline (2020 onwards only) */
+const timeline = [
+  { year: "2020", event: "Formal registration of Manavta Hitay Organisation" },
+  { year: "2021", event: "Expansion of elderly care and social welfare programs" },
+  { year: "2022", event: "Introduction of structured healthcare and rehabilitation support" },
+  { year: "2023 – Present", event: "Ongoing shelter, care, and community welfare services" },
 ];
 
 const Achievements = () => {
   return (
     <Layout>
-      {/* Hero */}
+      {/* Hero Section */}
       <section className="section-padding section-green-light">
         <div className="container-narrow mx-auto text-center">
           <p className="text-primary font-medium mb-3 uppercase tracking-wider text-sm">
-            Achievements & Awards
+            Achievements & Milestones
           </p>
           <h1 className="heading-display text-foreground mb-6">
-            Recognition for Our Service
+            Our Journey of Service
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Our dedication to elderly care has been recognized by various organizations 
-            over the years. Here are some of our proudest moments.
+            Since our registration in 2020, Manavta Hitay Organisation has been
+            committed to providing dignified care and support to the elderly
+            and vulnerable members of society.
           </p>
         </div>
       </section>
 
-      {/* Featured Award */}
+      {/* Featured Section */}
       <section className="section-padding bg-background">
         <div className="container-narrow mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <img
                 src={awardImage}
-                alt="Award ceremony - Placeholder image"
+                alt="Community service activities - Placeholder image"
                 className="rounded-2xl shadow-lg w-full aspect-[3/2] object-cover"
               />
             </div>
@@ -85,29 +74,27 @@ const Achievements = () => {
                 <Trophy className="w-7 h-7 text-primary" />
               </div>
               <h2 className="heading-section text-foreground mb-6">
-                A Legacy of Excellence
+                A Commitment to Compassion
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-                Over the past 15 years, Manav Seva Chatra has received numerous awards 
-                and recognitions for our commitment to providing exceptional care for 
-                elderly individuals.
+                Our work focuses on providing a safe environment, healthcare
+                assistance, nutritious food, and emotional support to those in need.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                These awards are a testament to the hard work of our staff, the support 
-                of our donors, and most importantly, the trust placed in us by the 
-                families of our residents.
+                Every milestone reflects the trust placed in us by the community
+                and our dedication to ethical and transparent service.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Awards List */}
+      {/* Achievements Cards */}
       <section className="section-padding section-warm-bg">
         <div className="container-narrow mx-auto">
           <div className="text-center mb-12">
             <h2 className="heading-section text-foreground mb-4">
-              Awards & Recognitions
+              Key Achievements
             </h2>
           </div>
 
@@ -118,38 +105,42 @@ const Achievements = () => {
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                     <Award className="w-5 h-5 text-primary" />
                   </div>
-                  <span className="text-sm font-medium text-primary">{item.year}</span>
+                  <span className="text-sm font-medium text-primary">
+                    {item.year}
+                  </span>
                 </div>
                 <h3 className="font-serif text-lg font-semibold text-foreground mb-2">
                   {item.title}
                 </h3>
-                <p className="text-muted-foreground text-sm">{item.description}</p>
+                <p className="text-muted-foreground text-sm">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* Timeline Section */}
       <section className="section-padding bg-background">
         <div className="container-narrow mx-auto">
           <div className="text-center mb-12">
             <h2 className="heading-section text-foreground mb-4">
-              Our Journey
+              Timeline of Growth
             </h2>
             <p className="text-muted-foreground text-lg">
-              Key milestones in our 15+ years of service.
+              Our progress and milestones since 2020.
             </p>
           </div>
 
           <div className="max-w-2xl mx-auto">
-            {milestones.map((item, index) => (
+            {timeline.map((item, index) => (
               <div key={index} className="flex gap-6 pb-8 last:pb-0">
                 <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-semibold text-sm shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-semibold text-xs text-center">
                     {item.year}
                   </div>
-                  {index < milestones.length - 1 && (
+                  {index < timeline.length - 1 && (
                     <div className="w-0.5 h-full bg-border mt-2" />
                   )}
                 </div>

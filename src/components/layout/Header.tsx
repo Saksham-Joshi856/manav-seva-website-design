@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
@@ -22,12 +22,17 @@ export function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center">
-              <Heart className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
+            <div className="flex items-center justify-center">
+              <img
+                src="/logo.png"
+                alt="Manavta Hitay Organisation Logo"
+                className="h-10 md:h-12 w-auto"
+              />
             </div>
+
             <div className="hidden sm:block">
               <h1 className="font-serif text-lg md:text-xl font-semibold text-foreground leading-tight">
-                Manav Seva Chatra
+                Manavta Hitay Organisation
               </h1>
               <p className="text-xs text-muted-foreground">Old Age Home, Pune</p>
             </div>
@@ -39,11 +44,10 @@ export function Header() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                  location.pathname === link.path
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
+                className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${location.pathname === link.path
+                  ? "text-primary bg-primary/10"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
               >
                 {link.name}
               </Link>
@@ -80,11 +84,10 @@ export function Header() {
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`px-4 py-3 text-base font-medium rounded-md transition-colors ${
-                    location.pathname === link.path
-                      ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                  }`}
+                  className={`px-4 py-3 text-base font-medium rounded-md transition-colors ${location.pathname === link.path
+                    ? "text-primary bg-primary/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    }`}
                 >
                   {link.name}
                 </Link>

@@ -22,7 +22,7 @@ export function HeroSection() {
           <div className="flex items-center gap-2 text-primary-foreground/90 mb-4">
             <Heart className="w-5 h-5" />
             <span className="text-sm font-medium uppercase tracking-wider">
-              Since 2008 • Nigdi, Pune
+              Since 2020 • Nigdi, Pune
             </span>
           </div>
 
@@ -31,8 +31,8 @@ export function HeroSection() {
           </h1>
 
           <p className="text-body-large text-primary-foreground/90 mb-8 max-w-xl">
-            At Manav Seva Chatra, we believe every elderly person deserves a life 
-            filled with compassion, respect, and proper care. Join us in making 
+            At Manavta Hitay Organisation, we believe every elderly person deserves a life
+            filled with compassion, respect, and proper care. Join us in making
             their golden years truly golden.
           </p>
 
@@ -49,11 +49,13 @@ export function HeroSection() {
             <Link to="/about">
               <Button
                 size="lg"
-                variant="outline"
-                className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/20 font-semibold px-8"
+                className="bg-white text-primary border-2 border-white font-semibold px-8 hover:bg-white hover:text-primary"
               >
                 Learn More About Us
               </Button>
+
+
+
             </Link>
           </div>
         </div>

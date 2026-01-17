@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Heart, CreditCard, Smartphone, Building2, AlertCircle } from "lucide-react";
 import { useState } from "react";
+import upiQR from "@/assets/upi-qr.jpeg";
+
 
 const donationAmounts = [500, 1000, 2500, 5000, 10000, 25000];
 
@@ -35,7 +37,7 @@ const Donate = () => {
             Your Donation Changes Lives
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Every contribution helps us provide better care, nutritious meals, and medical 
+            Every contribution helps us provide better care, nutritious meals, and medical
             support to our elderly residents. Thank you for your generosity.
           </p>
         </div>
@@ -53,7 +55,7 @@ const Donate = () => {
                   Payment Integration Coming Soon
                 </h3>
                 <p className="text-sm text-accent-foreground/80">
-                  Secure online payment via Razorpay and UPI will be available shortly. 
+                  Secure online payment via Razorpay and UPI will be available shortly.
                   For now, please use the bank details below or contact us directly.
                 </p>
               </div>
@@ -70,11 +72,10 @@ const Donate = () => {
                   <button
                     key={amount}
                     onClick={() => handleAmountSelect(amount)}
-                    className={`py-4 rounded-lg font-medium transition-all ${
-                      selectedAmount === amount
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-muted text-muted-foreground hover:bg-primary/10"
-                    }`}
+                    className={`py-4 rounded-lg font-medium transition-all ${selectedAmount === amount
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-muted text-muted-foreground hover:bg-primary/10"
+                      }`}
                   >
                     ₹{amount.toLocaleString()}
                   </button>
@@ -111,10 +112,14 @@ const Donate = () => {
                   </p>
                   <div className="bg-card p-6 rounded-lg border border-dashed border-border text-center">
                     <p className="text-muted-foreground text-sm">
-                      [QR Code Placeholder]
+                      <img
+                        src={upiQR}
+                        alt="UPI QR Code for Donation"
+                        className="mx-auto w-40 h-40 object-contain"
+                      />
                     </p>
                     <p className="text-sm text-muted-foreground mt-2">
-                      UPI ID: donate@manavsevachatra
+                      UPI ID: 7066883322@ucobank
                     </p>
                   </div>
                 </div>

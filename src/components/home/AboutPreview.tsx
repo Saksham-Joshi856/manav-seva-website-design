@@ -40,16 +40,18 @@ export function AboutPreview() {
               A Home Where Every Elder Matters
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              Manav Seva Chatra is a registered non-profit old age home located in 
-              Nigdi Pradhikaran, Pune. Since 2008, we have been dedicated to providing 
-              a safe, loving, and dignified environment for elderly individuals who 
-              need care and companionship.
+              Manavata Hitay Social Foundation is nonprofit organization registered during the
+              2020. Trust is based at pimpri chinchwad and work in all over the pune district
+              and Maharashtra state.
+              The basic objectives of the trust is to work for the underprivileged population
+              specially the street orphan persons who need medical help and rehabilitation.
+              Also since the last 3 years trust is working with another important ignorable group
+              transgender for giving their basic rights
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Our mission is simple: to ensure that no elderly person feels abandoned 
-              or alone. We provide 24/7 care, nutritious meals, medical support, and 
-              most importantly, a family-like atmosphere where they can spend their 
-              golden years with peace and happiness.
+              Establishment of shelter home, empowering and advocating for the rights of these
+              vulnerable populations, promoting social inclusion and celebrating diversity with
+              the support of different stakeholders
             </p>
 
             {/* Key Points */}

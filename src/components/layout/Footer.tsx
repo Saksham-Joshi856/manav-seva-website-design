@@ -13,12 +13,12 @@ export function Footer() {
                 <Heart className="w-5 h-5 text-primary-foreground" />
               </div>
               <div>
-                <h3 className="font-serif text-lg font-semibold">Manav Seva Chatra</h3>
+                <h3 className="font-serif text-lg font-semibold">Manavta Hitay Organisation</h3>
               </div>
             </div>
             <p className="text-background/70 text-sm leading-relaxed">
-              Providing dignified care, love, and support to elderly individuals in need. 
-              A registered non-profit organization serving the community since 2008.
+              Providing dignified care, love, and support to elderly individuals in need.
+              A registered non-profit organization serving the community since 2020.
             </p>
           </div>
 
@@ -51,11 +51,12 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-background/70">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                <span>Sector 23, Nigdi Pradhikaran, Pune, Maharashtra 411044</span>
+                <span>Office no-305,2nd Floor, Kamala corner , near Morya Hospital,
+                  Chinchwad, Pune- 411033</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-background/70">
                 <Phone className="w-4 h-4 shrink-0" />
-                <span>+91 98765 43210</span>
+                <span>+91 70668 83322</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-background/70">
                 <Mail className="w-4 h-4 shrink-0" />
@@ -72,8 +73,10 @@ export function Footer() {
           <div>
             <h4 className="font-serif text-lg font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-sm text-background/70">
-              <li>Registered under Societies Registration Act</li>
-              <li>80G Tax Exemption Available</li>
+              <li>Registered under Bombay Public Trust Act of
+                1950</li>
+              <li>Registered under section 12AA (2) of Income Tax
+                Act 1961</li>
               <li>FCRA Registered for Foreign Donations</li>
             </ul>
           </div>
@@ -82,7 +85,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-6 border-t border-background/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/60">
-            <p>© 2024 Manav Seva Chatra. All rights reserved.</p>
+            <p>© 2026 Manavta Hitay Organisation. All rights reserved.</p>
             <p className="text-center md:text-right">
               A non-profit organization dedicated to elderly care and welfare.
             </p>
