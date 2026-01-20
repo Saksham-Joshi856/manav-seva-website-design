@@ -1,73 +1,69 @@
-# Welcome to your Lovable project
+# Manavta Hitay Organisation – Official Website
 
-## Project info
+This repository contains the complete frontend implementation of the official website for **Manavta Hitay Organisation**, a non-profit organisation dedicated to the care, dignity, and well-being of senior citizens.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+The website is designed to present the organisation’s mission, services, achievements, gallery, and donation information in a clean, modern, and user-friendly manner.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🌱 About Manavta Hitay Organisation
 
-**Use Lovable**
+**Manavta Hitay Organisation** works towards improving the quality of life of elderly individuals by providing:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- Residential elderly care
+- Medical assistance and healthcare support
+- Nutritious daily meals
+- Recreational and social activities
+- Emotional and community engagement
 
-Changes made via Lovable will be committed automatically to this repo.
+This website acts as a digital platform to spread awareness, showcase activities, and enable public support through donations.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Tech Stack Used
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+The project is built using modern frontend technologies:
 
-Follow these steps:
+- **Vite** – Fast build tool for modern web apps
+- **React** – Component-based UI development
+- **TypeScript** – Type-safe JavaScript
+- **Tailwind CSS** – Utility-first CSS framework
+- **shadcn/ui** – Reusable and accessible UI components
+- **Framer Motion** – Scroll-based reveal animations
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## ✨ Features Implemented
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Frontend
+- Fully responsive layout (mobile, tablet, desktop)
+- Clean and accessible UI design
+- Scroll-to-top behavior on route change
+- Scroll reveal animations across sections
+- Reusable component-based architecture
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### Pages
+- Home
+- About Us
+- Services
+- Achievements & Timeline
+- Gallery (Images + Videos)
+- Contact
+- Donate
 
-**Edit a file directly in GitHub**
+### Gallery
+- Displays **5 images + 2 videos**
+- Supports both images and MP4 videos
+- Click-to-view modal for images
+- Videos embedded directly using HTML5 `<video>` tag
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Donations
+- QR-code based donation system
+- No payment gateway integration
+- Donors scan QR and pay directly to NGO bank account
+- Acknowledgement section prepared on frontend
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📁 Project Structure
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
