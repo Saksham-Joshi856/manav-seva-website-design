@@ -24,7 +24,7 @@ export function AboutPreview() {
                   <Heart className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-foreground">15+</p>
+                  <p className="text-2xl font-bold text-foreground">5+</p>
                   <p className="text-sm text-muted-foreground">Years of Service</p>
                 </div>
               </div>
