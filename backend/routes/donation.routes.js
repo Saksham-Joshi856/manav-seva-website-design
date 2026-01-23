@@ -1,7 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const { createDonation } = require("../controllers/donation.controller");
 
-router.post("/donate", createDonation);
+const donationController = require("../controllers/donation.controller");
+
+// Create donation
+router.post("/donate", donationController.createDonation);
+
+// Download receipt
+router.get("/receipt/:receiptNo", donationController.downloadReceipt);
 
 module.exports = router;

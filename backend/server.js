@@ -13,13 +13,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use("/receipts", express.static("public/receipts"));
+
+
 // Routes
-app.use("/api/donations", donationRoutes);
+app.use("/api", donationRoutes);
 
 // Test route
 app.get("/", (req, res) => {
     res.send("Backend is running successfully 🚀");
 });
+
+
 
 mongoose
     .connect(process.env.MONGO_URI)

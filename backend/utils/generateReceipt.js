@@ -1,7 +1,7 @@
-function generateReceiptId() {
-    const timestamp = Date.now();
-    const random = Math.floor(1000 + Math.random() * 9000);
-    return `MSC-${timestamp}-${random}`;
-}
+const generateReceipt = () => {
+    const year = new Date().getFullYear();
+    const random = Math.floor(100000 + Math.random() * 900000);
+    return `MSC-${year}-${random}`;
+};
 
-module.exports = generateReceiptId;
+module.exports = generateReceipt;
