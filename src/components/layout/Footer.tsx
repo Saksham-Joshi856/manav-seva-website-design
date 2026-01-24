@@ -85,7 +85,16 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-6 border-t border-background/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/60">
-            <p>© 2026 Manavta Hitay Organisation. All rights reserved.</p>
+            <p className="text-sm text-muted-foreground mt-4 text-center">
+              © 2026 Manavta Hitay Organisation. All rights reserved.
+            </p>
+
+            <p className="text-xs text-muted-foreground/70 mt-1 text-center">
+              Website developed by students of Pimpri Chinchwad College of Engineering (PCCOE),
+              under the guidance of their mentor.
+            </p>
+
+
             <p className="text-center md:text-right">
               A non-profit organization dedicated to elderly care and welfare.
             </p>
