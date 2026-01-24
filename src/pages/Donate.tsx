@@ -1,60 +1,50 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Heart, Smartphone, Building2, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import upiQR from "@/assets/upi-qr.jpeg";
 
-const donationAmounts = [500, 1000, 2500, 5000, 10000, 25000];
-
 const Donate = () => {
-  const [selectedAmount, setSelectedAmount] = useState<number | null>(1000);
-  const [customAmount, setCustomAmount] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [utr, setUtr] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    amount: "",
+    utr: "",
+    message: "",
+  });
 
-  const finalAmount = selectedAmount ?? Number(customAmount);
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async () => {
-    if (!name || !email || !finalAmount || !utr) {
-      setMessage("Please fill all fields");
+    if (!formData.name || !formData.email || !formData.amount || !formData.utr) {
+      alert("Please fill all required fields.");
       return;
     }
 
     try {
       setLoading(true);
-      setMessage("");
-
       const res = await fetch("http://localhost:5000/api/donate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          amount: finalAmount,
-          utr,
-        }),
+        body: JSON.stringify(formData),
       });
 
       const data = await res.json();
 
-      if (!res.ok) throw new Error(data.message);
-
-      setMessage(
-        `Thank you for donating ₹${finalAmount}. Receipt has been sent to your email.`
-      );
-
-      // reset form
-      setName("");
-      setEmail("");
-      setUtr("");
-      setCustomAmount("");
-      setSelectedAmount(1000);
-    } catch (err: any) {
-      setMessage(err.message || "Something went wrong");
+      if (data.success) {
+        alert("Thank you! Your donation receipt has been sent to your email.");
+        setFormData({ name: "", email: "", amount: "", utr: "", message: "" });
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      alert("Server error. Please try later.");
     } finally {
       setLoading(false);
     }
@@ -62,103 +52,76 @@ const Donate = () => {
 
   return (
     <Layout>
-      {/* Hero */}
+      {/* Header */}
       <section className="section-padding section-green-light text-center">
         <div className="container-narrow mx-auto">
-          <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-            <Heart className="w-8 h-8 text-primary" />
-          </div>
-          <h1 className="heading-display mb-4">Support Our Mission</h1>
-          <p className="text-muted-foreground">
-            Scan the QR, make your contribution, and submit the details below.
+          <Heart className="w-10 h-10 text-primary mx-auto mb-4" />
+          <h1 className="heading-display mb-4">Donate & Support Our Cause</h1>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Your contribution helps us provide care, dignity, and support to the elderly.
           </p>
         </div>
       </section>
 
-      {/* Donation Section */}
-      <section className="section-padding">
-        <div className="container-narrow mx-auto max-w-2xl space-y-8">
-
-          {/* Info */}
-          <div className="bg-accent/50 p-5 rounded-xl flex gap-3">
-            <AlertCircle className="text-accent-foreground" />
+      {/* Instructions */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow mx-auto max-w-2xl">
+          <div className="bg-accent/50 p-5 rounded-xl flex gap-3 mb-8">
+            <AlertCircle className="w-5 h-5 mt-1" />
             <p className="text-sm">
-              After payment, please enter your details correctly.
-              A receipt will be emailed to you.
+              <strong>Step 1:</strong> Scan the QR code and complete payment.<br />
+              <strong>Step 2:</strong> Fill the form below using the same amount & UTR number.
             </p>
           </div>
 
-          {/* Amount */}
+          {/* UPI Section */}
+          <div className="card-service mb-8">
+            <div className="flex items-center gap-2 mb-4">
+              <Smartphone className="w-5 h-5 text-primary" />
+              <h2 className="font-semibold text-lg">UPI Payment</h2>
+            </div>
+
+            <div className="text-center">
+              <img src={upiQR} alt="UPI QR Code" className="mx-auto w-44 h-44 mb-3" />
+              <p className="text-sm text-muted-foreground">
+                UPI ID: <strong>7066883322@ucobank</strong>
+              </p>
+            </div>
+          </div>
+
+          {/* Bank Details */}
+          <div className="card-service mb-8">
+            <div className="flex items-center gap-2 mb-4">
+              <Building2 className="w-5 h-5 text-primary" />
+              <h2 className="font-semibold text-lg">Bank Transfer Details</h2>
+            </div>
+
+            <div className="text-sm space-y-2">
+              <p><strong>Account Name:</strong> Manav Seva Chatra</p>
+              <p><strong>Bank:</strong> UCO Bank</p>
+              <p><strong>UPI Linked Mobile:</strong> 7066883322</p>
+            </div>
+          </div>
+
+          {/* Donation Form */}
           <div className="card-service">
-            <h2 className="font-serif text-xl mb-4">Donation Amount</h2>
-            <div className="grid grid-cols-3 gap-3 mb-4">
-              {donationAmounts.map((amt) => (
-                <button
-                  key={amt}
-                  onClick={() => {
-                    setSelectedAmount(amt);
-                    setCustomAmount("");
-                  }}
-                  className={`py-3 rounded-lg ${selectedAmount === amt
-                      ? "bg-primary text-white"
-                      : "bg-muted"
-                    }`}
-                >
-                  ₹{amt}
-                </button>
-              ))}
+            <h2 className="font-semibold text-lg mb-4">Donation Details</h2>
+
+            <div className="space-y-4">
+              <Input name="name" placeholder="Full Name *" value={formData.name} onChange={handleChange} />
+              <Input name="email" type="email" placeholder="Email Address *" value={formData.email} onChange={handleChange} />
+              <Input name="amount" type="number" placeholder="Donation Amount (₹) *" value={formData.amount} onChange={handleChange} />
+              <Input name="utr" placeholder="UTR / Transaction ID *" value={formData.utr} onChange={handleChange} />
+              <Textarea name="message" placeholder="Message (optional)" value={formData.message} onChange={handleChange} />
+
+              <Button onClick={handleSubmit} disabled={loading} className="w-full btn-primary py-5">
+                {loading ? "Submitting..." : "Submit & Get Receipt"}
+              </Button>
             </div>
-            <Input
-              type="number"
-              placeholder="Custom amount"
-              value={customAmount}
-              onChange={(e) => {
-                setCustomAmount(e.target.value);
-                setSelectedAmount(null);
-              }}
-            />
           </div>
 
-          {/* UPI */}
-          <div className="card-service text-center">
-            <div className="flex justify-center gap-2 mb-2">
-              <Smartphone className="text-primary" />
-              <h3 className="font-medium">UPI Payment</h3>
-            </div>
-            <img src={upiQR} alt="UPI QR" className="mx-auto w-40" />
-            <p className="text-sm mt-2 text-muted-foreground">
-              UPI ID: 7066883322@ucobank
-            </p>
-          </div>
-
-          {/* Bank */}
-          <div className="card-service">
-            <div className="flex gap-2 mb-2">
-              <Building2 className="text-primary" />
-              <h3 className="font-medium">Bank Details</h3>
-            </div>
-            <p className="text-sm">Account Name: Manav Seva Chatra</p>
-            <p className="text-sm">Bank: State Bank of India</p>
-          </div>
-
-          {/* Form */}
-          <div className="card-service space-y-4">
-            <Input placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} />
-            <Input placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <Input placeholder="UPI Transaction ID (UTR)" value={utr} onChange={(e) => setUtr(e.target.value)} />
-
-            {message && (
-              <p className="text-sm text-center text-primary">{message}</p>
-            )}
-
-            <Button onClick={handleSubmit} disabled={loading} className="w-full py-6">
-              <Heart className="mr-2" />
-              {loading ? "Processing..." : "Submit Donation Details"}
-            </Button>
-          </div>
-
-          <p className="text-center text-sm text-muted-foreground">
-            Donations are eligible under Section 80G. Receipt will be emailed.
+          <p className="text-center text-xs text-muted-foreground mt-6">
+            Donation receipts are sent via email. Eligible under Section 80G.
           </p>
         </div>
       </section>
