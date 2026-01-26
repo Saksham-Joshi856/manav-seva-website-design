@@ -5,10 +5,12 @@ const PDFDocument = require("pdfkit");
 const generatePDF = (donation) => {
     return new Promise((resolve, reject) => {
         try {
-            const receiptsDir = path.join(__dirname, "../receipts");
+            // Use public/receipts directory for consistency
+            const receiptsDir = path.join(__dirname, "../public/receipts");
 
+            // Create directory if it doesn't exist (recursive)
             if (!fs.existsSync(receiptsDir)) {
-                fs.mkdirSync(receiptsDir);
+                fs.mkdirSync(receiptsDir, { recursive: true });
             }
 
             const fileName = `receipt-${donation.receiptNo}.pdf`;

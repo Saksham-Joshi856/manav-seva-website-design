@@ -5,10 +5,17 @@ const sendEmail = require("../utils/sendEmail");
 const path = require("path");
 const fs = require("fs");
 
+// Email validation helper
+const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+};
+
 exports.createDonation = async (req, res) => {
     try {
         const { name, email, amount, utr } = req.body;
 
+        // Basic validation
         if (!name || !email || !amount || !utr) {
             return res.status(400).json({
                 success: false,
@@ -16,8 +23,50 @@ exports.createDonation = async (req, res) => {
             });
         }
 
+        // Trim and validate inputs
+        const trimmedName = name.trim();
+        const trimmedEmail = email.trim().toLowerCase();
+        const trimmedUtr = utr.trim();
+
+        if (!trimmedName || trimmedName.length < 2) {
+            return res.status(400).json({
+                success: false,
+                message: "Name must be at least 2 characters long",
+            });
+        }
+
+        if (!isValidEmail(trimmedEmail)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid email format",
+            });
+        }
+
+        // Validate amount
+        const donationAmount = parseFloat(amount);
+        if (isNaN(donationAmount) || donationAmount <= 0) {
+            return res.status(400).json({
+                success: false,
+                message: "Amount must be a positive number",
+            });
+        }
+
+        if (donationAmount > 10000000) {
+            return res.status(400).json({
+                success: false,
+                message: "Amount exceeds maximum limit",
+            });
+        }
+
+        if (!trimmedUtr || trimmedUtr.length < 5) {
+            return res.status(400).json({
+                success: false,
+                message: "Transaction ID is required and must be at least 5 characters",
+            });
+        }
+
         const existingDonation = await Donation.findOne({
-            transactionId: utr,
+            transactionId: trimmedUtr,
         });
 
         if (existingDonation) {
@@ -30,28 +79,30 @@ exports.createDonation = async (req, res) => {
         const receiptNo = generateReceipt();
 
         const donation = await Donation.create({
-            name,
-            email,
-            amount,
-            transactionId: utr,
+            name: trimmedName,
+            email: trimmedEmail,
+            amount: donationAmount,
+            transactionId: trimmedUtr,
             receiptNo,
         });
 
         // Generate receipt PDF
         const receiptPath = await generatePDF(donation);
 
-        console.log("Sending email to:", email);
-        // 🔥 SEND EMAIL (THIS WAS MISSING)
-        await sendEmail({
-            to: email, // ✅ THIS FIXES THE ERROR
+        // Send email (non-blocking - don't fail donation if email fails)
+        sendEmail({
+            to: trimmedEmail,
             subject: "Donation Receipt - Manavta Hitay Organisation",
             text: `
-Dear ${name},
+Dear ${trimmedName},
 
-Thank you for your generous donation of ₹${amount}.
+Thank you for your generous donation of ₹${donationAmount}.
 Your support means a lot to us.
 
 Receipt Number: ${receiptNo}
+Transaction ID: ${trimmedUtr}
+
+You can download your receipt using the receipt number.
 
 Regards,
 Manavta Hitay Organisation
@@ -62,6 +113,9 @@ Manavta Hitay Organisation
                     path: receiptPath,
                 },
             ],
+        }).catch((emailError) => {
+            // Log email error but don't fail the donation
+            console.error("Failed to send email:", emailError);
         });
 
         res.status(201).json({
@@ -69,17 +123,35 @@ Manavta Hitay Organisation
             message: "Donation successful. Receipt sent via email.",
             data: {
                 receiptNo,
-                name,
-                email,
-                amount,
+                name: trimmedName,
+                email: trimmedEmail,
+                amount: donationAmount,
                 date: donation.createdAt,
             },
         });
     } catch (error) {
         console.error("Donation Error:", error);
+        
+        // Handle specific MongoDB errors
+        if (error.code === 11000) {
+            return res.status(409).json({
+                success: false,
+                message: "Transaction ID or receipt number already exists",
+            });
+        }
+
+        if (error.name === "ValidationError") {
+            return res.status(400).json({
+                success: false,
+                message: "Validation error: " + Object.values(error.errors).map(e => e.message).join(", "),
+            });
+        }
+
         res.status(500).json({
             success: false,
-            message: "Server error",
+            message: process.env.NODE_ENV === "production" 
+                ? "Server error. Please try again later." 
+                : error.message,
         });
     }
 };
@@ -88,25 +160,59 @@ exports.downloadReceipt = async (req, res) => {
     try {
         const { receiptNo } = req.params;
 
-        const filePath = path.join(
-            __dirname,
-            "../receipts",
-            `receipt-${receiptNo}.pdf`
-        );
+        // Validate receipt number format
+        if (!receiptNo || receiptNo.length < 5) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid receipt number",
+            });
+        }
 
-        if (!fs.existsSync(filePath)) {
+        // Sanitize receipt number to prevent path traversal
+        const sanitizedReceiptNo = receiptNo.replace(/[^a-zA-Z0-9-]/g, "");
+
+        // Check if receipt exists in database first
+        const donation = await Donation.findOne({ receiptNo: sanitizedReceiptNo });
+        if (!donation) {
             return res.status(404).json({
                 success: false,
                 message: "Receipt not found",
             });
         }
 
-        res.download(filePath);
+        // Use public/receipts directory (consistent with static serving)
+        const filePath = path.join(
+            __dirname,
+            "../public/receipts",
+            `receipt-${sanitizedReceiptNo}.pdf`
+        );
+
+        // Additional check if file exists
+        if (!fs.existsSync(filePath)) {
+            return res.status(404).json({
+                success: false,
+                message: "Receipt file not found",
+            });
+        }
+
+        res.download(filePath, `receipt-${sanitizedReceiptNo}.pdf`, (err) => {
+            if (err) {
+                console.error("Download error:", err);
+                if (!res.headersSent) {
+                    res.status(500).json({
+                        success: false,
+                        message: "Error downloading receipt",
+                    });
+                }
+            }
+        });
     } catch (error) {
         console.error("Download Receipt Error:", error);
         res.status(500).json({
             success: false,
-            message: "Server error",
+            message: process.env.NODE_ENV === "production" 
+                ? "Server error" 
+                : error.message,
         });
     }
 };

@@ -35,16 +35,36 @@ const Donate = () => {
         body: JSON.stringify(formData),
       });
 
+      // Check if response is ok
+      if (!res.ok) {
+        // Try to get error message from response
+        let errorMessage = "Something went wrong. Please try again.";
+        try {
+          const errorData = await res.json();
+          errorMessage = errorData.message || errorMessage;
+        } catch (e) {
+          errorMessage = `Server error (${res.status}). Please check if backend is running.`;
+        }
+        alert(errorMessage);
+        return;
+      }
+
       const data = await res.json();
 
       if (data.success) {
         alert("Thank you! Your donation receipt has been sent to your email.");
         setFormData({ name: "", email: "", amount: "", utr: "", message: "" });
       } else {
-        alert("Something went wrong. Please try again.");
+        alert(data.message || "Something went wrong. Please try again.");
       }
     } catch (err) {
-      alert("Server error. Please try later.");
+      console.error("Donation error:", err);
+      // More specific error messages
+      if (err instanceof TypeError && err.message.includes("fetch")) {
+        alert("Cannot connect to server. Please make sure the backend is running on http://localhost:5000");
+      } else {
+        alert(`Error: ${err instanceof Error ? err.message : "Server error. Please try later."}`);
+      }
     } finally {
       setLoading(false);
     }
