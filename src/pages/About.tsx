@@ -40,23 +40,22 @@ const About = () => {
                 </h2>
                 <motion.div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Manavata Hitay Social Foundation is nonprofit organization registered during the
-                    2020. Trust is based at pimpri chinchwad and work in all over the pune district
-                    and Maharashtra state.
-                    The basic objectives of the trust is to work for the underprivileged population
-                    specially the street orphan persons who need medical help and rehabilitation.
-                    Also since the last 3 years trust is working with another important ignorable group
-                    transgender for giving their basic rights
+                    Manavta Hitay Social Foundation is a nonprofit organization registered in 2020.
+                    The trust is based in Pimpri-Chinchwad and works across the Pune district and
+                    the wider Maharashtra state. Our primary objective is to serve underprivileged
+                    communities, especially people living on the streets who need medical help and
+                    rehabilitation. In recent years, we have also focused on supporting the
+                    transgender community and helping them secure their fundamental rights.
                   </p>
                   <p>
-                    Our name "Manav Seva Chatra" means "Shelter of Human Service" – and that's
-                    exactly what we strive to be. A shelter where every elderly person is treated
-                    with the respect, care, and love they deserve.
+                    Our name &quot;Manav Seva Chatra&quot; means &quot;Shelter of Human Service&quot; –
+                    and that is exactly what we strive to be: a home where every elderly person is
+                    treated with respect, care, and love.
                   </p>
                   <p>
                     Located in the peaceful neighborhood of Nigdi Pradhikaran, our facility
-                    provides a home-like environment with modern amenities, medical facilities,
-                    and most importantly, a caring family atmosphere.
+                    provides a home-like environment with modern amenities, medical care,
+                    and most importantly, a warm, family-like atmosphere.
                   </p>
                 </motion.div>
               </motion.div>
@@ -79,9 +78,9 @@ const About = () => {
                   Our Mission
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Establishment of shelter home, empowering and advocating for the rights of these
-                  vulnerable populations, promoting social inclusion and celebrating motion.diversity with
-                  the support of different stakeholders
+                  We are committed to establishing and running shelter homes, empowering and
+                  advocating for the rights of vulnerable populations, promoting social inclusion,
+                  and celebrating diversity with the support of our partners, donors, and community.
                 </p>
               </motion.div>
 
@@ -120,7 +119,7 @@ const About = () => {
             <motion.div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { icon: Heart, title: "Compassion", desc: "Treating every resident with love and empathy" },
-                { icon: Users, title: "Dignity", desc: "Respecting the inmotion.dividuality of each person" },
+                { icon: Users, title: "Dignity", desc: "Respecting the individuality of each person" },
                 { icon: Award, title: "Excellence", desc: "Striving for the highest standards of care" },
                 { icon: Calendar, title: "Commitment", desc: "Dedicated service, 24 hours a day, 365 days" },
               ].map((value, index) => (

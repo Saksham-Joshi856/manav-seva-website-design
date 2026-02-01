@@ -5,7 +5,7 @@ const stats = [
     icon: Calendar,
     value: "3+",
     label: "Years of Service",
-    description: "Serving the elderly since 2008",
+    description: "Serving the elderly with care and dignity since 2020",
   },
   {
     icon: Users,

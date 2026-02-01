@@ -40,18 +40,17 @@ export function AboutPreview() {
               A Home Where Every Elder Matters
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              Manavata Hitay Social Foundation is nonprofit organization registered during the
-              2020. Trust is based at pimpri chinchwad and work in all over the pune district
-              and Maharashtra state.
-              The basic objectives of the trust is to work for the underprivileged population
-              specially the street orphan persons who need medical help and rehabilitation.
-              Also since the last 3 years trust is working with another important ignorable group
-              transgender for giving their basic rights
+              Manavta Hitay Social Foundation is a nonprofit organization registered in 2020.
+              The trust is based in Pimpri-Chinchwad and works across the Pune district and
+              the wider Maharashtra state. Our core objective is to serve underprivileged
+              communities, especially people living on the streets who need medical help and
+              rehabilitation. In recent years, we have also focused on supporting the
+              transgender community and helping them secure their basic rights.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Establishment of shelter home, empowering and advocating for the rights of these
-              vulnerable populations, promoting social inclusion and celebrating diversity with
-              the support of different stakeholders
+              Through our shelter home and outreach programs, we empower and advocate for
+              vulnerable populations, promote social inclusion, and celebrate diversity with
+              the support of various stakeholders and well‑wishers.
             </p>
 
             {/* Key Points */}

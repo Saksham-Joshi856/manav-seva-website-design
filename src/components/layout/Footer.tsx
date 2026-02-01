@@ -51,8 +51,10 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-background/70">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                <span>Office no-305,2nd Floor, Kamala corner , near Morya Hospital,
-                  Chinchwad, Pune- 411033</span>
+                <span>
+                  Office No. 305, 2nd Floor, Kamala Corner, near Morya Hospital,
+                  Chinchwad, Pune - 411033
+                </span>
               </li>
               <li className="flex items-center gap-3 text-sm text-background/70">
                 <Phone className="w-4 h-4 shrink-0" />
@@ -73,11 +75,9 @@ export function Footer() {
           <div>
             <h4 className="font-serif text-lg font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-sm text-background/70">
-              <li>Registered under Bombay Public Trust Act of
-                1950</li>
-              <li>Registered under section 12AA (2) of Income Tax
-                Act 1961</li>
-              <li>FCRA Registered for Foreign Donations</li>
+              <li>Registered under the Bombay Public Trusts Act, 1950</li>
+              <li>Registered under section 12AA(2) of the Income Tax Act, 1961</li>
+              <li>FCRA registered for receiving foreign donations</li>
             </ul>
           </div>
         </div>
