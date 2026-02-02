@@ -9,7 +9,7 @@ const achievements = [
     year: "2020",
     title: "Organisation Registered",
     description:
-      "Manavta Hitay Organisation was formally registered and began structured welfare activities in Pune district.",
+      "Maanavta Hitaay Organisation was formally registered and began structured welfare activities in Pune district.",
   },
   {
     year: "2021",
@@ -33,7 +33,7 @@ const achievements = [
 
 /* Timeline (2020 onwards only) */
 const timeline = [
-  { year: "2020", event: "Formal registration of Manavta Hitay Organisation" },
+  { year: "2020", event: "Formal registration of Maanavta Hitaay Organisation" },
   { year: "2021", event: "Expansion of elderly care and social welfare programs" },
   { year: "2022", event: "Introduction of structured healthcare and rehabilitation support" },
   { year: "2023 – Present", event: "Ongoing shelter, care, and community welfare services" },
@@ -53,7 +53,7 @@ const Achievements = () => {
               Our Journey of Service
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Since our registration in 2020, Manavta Hitay Organisation has been
+              Since our registration in 2020, Maanavta Hitaay Organisation has been
               committed to providing dignified care and support to the elderly
               and vulnerable members of society.
             </p>

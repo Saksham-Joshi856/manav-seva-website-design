@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "Backend API for Manavta Hitay Seva Chatra donation system",
+  "description": "Backend API for Maanavta Hitaay Seva Chatra donation system",
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^17.2.3",

@@ -13,7 +13,7 @@ export function HeroSection() {
           alt="Elderly residents enjoying time together in the garden - Placeholder image"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 gradient-hero" />
+        <div className="absolute inset-0 gradient-hero opacity-75" />
       </div>
 
       {/* Content */}
@@ -31,7 +31,7 @@ export function HeroSection() {
           </h1>
 
           <p className="text-body-large text-primary-foreground/90 mb-8 max-w-xl">
-            At Manavta Hitay Organisation, we believe every elderly person deserves a life
+            At Maanavta Hitaay Organisation, we believe every elderly person deserves a life
             filled with compassion, respect, and proper care. Join us in making
             their golden years truly golden.
           </p>

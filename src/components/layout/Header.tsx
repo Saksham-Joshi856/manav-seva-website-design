@@ -25,14 +25,14 @@ export function Header() {
             <div className="flex items-center justify-center">
               <img
                 src="/logo.png"
-                alt="Manavta Hitay Organisation Logo"
+                alt="Maanavta Hitaay Organisation Logo"
                 className="h-10 md:h-12 w-auto"
               />
             </div>
 
             <div className="hidden sm:block">
               <h1 className="font-serif text-lg md:text-xl font-semibold text-foreground leading-tight">
-                Manavta Hitay Organisation
+                Maanavta Hitaay Organisation
               </h1>
               <p className="text-xs text-muted-foreground">Old Age Home, Pune</p>
             </div>

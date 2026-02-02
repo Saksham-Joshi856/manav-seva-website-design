@@ -23,7 +23,7 @@ const sendEmail = async ({ to, subject, text, attachments }) => {
 
     try {
         const info = await transporter.sendMail({
-            from: `"Manavta Hitay Organisation" <${process.env.EMAIL_USER}>`,
+            from: `"Maanavta Hitaay Organisation" <${process.env.EMAIL_USER}>`,
             to,
             subject,
             text,

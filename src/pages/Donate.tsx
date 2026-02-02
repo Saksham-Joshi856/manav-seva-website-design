@@ -117,7 +117,7 @@ const Donate = () => {
             </div>
 
             <div className="text-sm space-y-2">
-              <p><strong>Account Name:</strong> Manav Seva Chatra</p>
+              <p><strong>Account Name:</strong> Manaavta Hitaay Social Foundation</p>
               <p><strong>Bank:</strong> UCO Bank</p>
               <p><strong>UPI Linked Mobile:</strong> 7066883322</p>
             </div>

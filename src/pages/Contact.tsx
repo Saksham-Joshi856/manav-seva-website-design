@@ -70,7 +70,7 @@ const Contact = () => {
                   <h3 className="font-medium text-foreground mb-1">Email</h3>
                   <p className="text-muted-foreground text-sm">
                     info@manavsevachatra.org<br />
-                    donate@manavsevachatra.org
+
                   </p>
                 </div>
               </div>
@@ -104,7 +104,7 @@ const Contact = () => {
 
           <div className="aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden border border-border">
             <iframe
-              src="https://www.google.com/maps?q=Manavta+Hitay+Organisation+Nigdi+Pradhikaran+Pune&output=embed"
+              src="https://www.google.com/maps?q=Maanavta+Hitaay+Organisation+Nigdi+Pradhikaran+Pune&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

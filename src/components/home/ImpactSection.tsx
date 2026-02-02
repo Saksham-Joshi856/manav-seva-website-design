@@ -3,7 +3,7 @@ import { Calendar, Users, Award, Heart } from "lucide-react";
 const stats = [
   {
     icon: Calendar,
-    value: "3+",
+    value: "5+",
     label: "Years of Service",
     description: "Serving the elderly with care and dignity since 2020",
   },

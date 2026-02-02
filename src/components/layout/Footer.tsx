@@ -13,7 +13,7 @@ export function Footer() {
                 <Heart className="w-5 h-5 text-primary-foreground" />
               </div>
               <div>
-                <h3 className="font-serif text-lg font-semibold">Manavta Hitay Organisation</h3>
+                <h3 className="font-serif text-lg font-semibold">Maanavta Hitaay Organisation</h3>
               </div>
             </div>
             <p className="text-background/70 text-sm leading-relaxed">
@@ -62,7 +62,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm text-background/70">
                 <Mail className="w-4 h-4 shrink-0" />
-                <span>info@manavsevachatra.org</span>
+                <span>manavtahitay@gmail.com</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-background/70">
                 <Clock className="w-4 h-4 shrink-0" />
@@ -86,7 +86,7 @@ export function Footer() {
         <div className="mt-12 pt-6 border-t border-background/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/60">
             <p className="text-sm text-muted-foreground mt-4 text-center">
-              © 2026 Manavta Hitay Organisation. All rights reserved.
+              © 2026 Maanavta Hitaay Organisation. All rights reserved.
             </p>
 
             <p className="text-xs text-muted-foreground/70 mt-1 text-center">

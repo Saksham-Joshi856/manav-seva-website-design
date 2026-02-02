@@ -92,7 +92,7 @@ exports.createDonation = async (req, res) => {
         // Send email (non-blocking - don't fail donation if email fails)
         sendEmail({
             to: trimmedEmail,
-            subject: "Donation Receipt - Manavta Hitay Organisation",
+            subject: "Donation Receipt - Maanavta Hitaay Organisation",
             text: `
 Dear ${trimmedName},
 
@@ -105,7 +105,7 @@ Transaction ID: ${trimmedUtr}
 You can download your receipt using the receipt number.
 
 Regards,
-Manavta Hitay Organisation
+Maanavta Hitaay Organisation
             `,
             attachments: [
                 {

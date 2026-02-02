@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Heart, Award } from "lucide-react";
 import aboutImage from "@/assets/about-team.jpg";
+import React from "react";
 
 export function AboutPreview() {
   return (
@@ -40,7 +41,7 @@ export function AboutPreview() {
               A Home Where Every Elder Matters
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              Manavta Hitay Social Foundation is a nonprofit organization registered in 2020.
+              Maanavta Hitaay Social Foundation is a nonprofit organization registered in 2020.
               The trust is based in Pimpri-Chinchwad and works across the Pune district and
               the wider Maharashtra state. Our core objective is to serve underprivileged
               communities, especially people living on the streets who need medical help and

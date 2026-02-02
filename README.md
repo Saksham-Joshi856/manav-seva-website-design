@@ -1,14 +1,14 @@
-# Manavta Hitay Organisation – Official Website
+# Maanavta Hitaay Organisation – Official Website
 
-This repository contains the complete frontend implementation of the official website for **Manavta Hitay Organisation**, a non-profit organisation dedicated to the care, dignity, and well-being of senior citizens.
+This repository contains the complete frontend implementation of the official website for **Maanavta Hitaay Organisation**, a non-profit organisation dedicated to the care, dignity, and well-being of senior citizens.
 
 The website is designed to present the organisation’s mission, services, achievements, gallery, and donation information in a clean, modern, and user-friendly manner.
 
 ---
 
-## 🌱 About Manavta Hitay Organisation
+## 🌱 About Maanavta Hitaay Organisation
 
-**Manavta Hitay Organisation** works towards improving the quality of life of elderly individuals by providing:
+**Maanavta Hitaay Organisation** works towards improving the quality of life of elderly individuals by providing:
 
 - Residential elderly care
 - Medical assistance and healthcare support

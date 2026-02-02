@@ -40,7 +40,7 @@ const About = () => {
                 </h2>
                 <motion.div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Manavta Hitay Social Foundation is a nonprofit organization registered in 2020.
+                    Maanavta Hitaay Social Foundation is a nonprofit organization registered in 2020.
                     The trust is based in Pimpri-Chinchwad and works across the Pune district and
                     the wider Maharashtra state. Our primary objective is to serve underprivileged
                     communities, especially people living on the streets who need medical help and
@@ -48,7 +48,7 @@ const About = () => {
                     transgender community and helping them secure their fundamental rights.
                   </p>
                   <p>
-                    Our name &quot;Manav Seva Chatra&quot; means &quot;Shelter of Human Service&quot; –
+                    Our name &quot;Maanavta Hitaay Seva Chatra&quot; means &quot;Shelter of Human Service&quot; –
                     and that is exactly what we strive to be: a home where every elderly person is
                     treated with respect, care, and love.
                   </p>
@@ -78,7 +78,7 @@ const About = () => {
                   Our Mission
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We are committed to establishing and running shelter homes, empowering and
+                  We are committed for establishing and running shelter homes, empowering and
                   advocating for the rights of vulnerable populations, promoting social inclusion,
                   and celebrating diversity with the support of our partners, donors, and community.
                 </p>
@@ -93,7 +93,7 @@ const About = () => {
                   Our Vision
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Create a future where every street orphan and transgender has the opportunity
+                  Create a future where every homeless and bed ridden has the opportunity
                   to lead a fulfilling life, reach their full potential, and contribute to their community
                   without fear of rejection or stigma.
                 </p>
