@@ -1,7 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Heart, Smartphone, Building2, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import upiQR from "@/assets/upi-qr.jpeg";
@@ -9,10 +8,9 @@ import upiQR from "@/assets/upi-qr.jpeg";
 const Donate = () => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    mobile: "",
     amount: "",
     utr: "",
-    message: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -22,7 +20,7 @@ const Donate = () => {
   };
 
   const handleSubmit = async () => {
-    if (!formData.name || !formData.email || !formData.amount || !formData.utr) {
+    if (!formData.name || !formData.mobile || !formData.amount || !formData.utr) {
       alert("Please fill all required fields.");
       return;
     }
@@ -52,8 +50,8 @@ const Donate = () => {
       const data = await res.json();
 
       if (data.success) {
-        alert("Thank you! Your donation receipt has been sent to your email.");
-        setFormData({ name: "", email: "", amount: "", utr: "", message: "" });
+        alert("Thank you! Your appreciation message has been sent on WhatsApp.");
+        setFormData({ name: "", mobile: "", amount: "", utr: "" });
       } else {
         alert(data.message || "Something went wrong. Please try again.");
       }
@@ -129,19 +127,17 @@ const Donate = () => {
 
             <div className="space-y-4">
               <Input name="name" placeholder="Full Name *" value={formData.name} onChange={handleChange} />
-              <Input name="email" type="email" placeholder="Email Address *" value={formData.email} onChange={handleChange} />
-              <Input name="amount" type="number" placeholder="Donation Amount (₹) *" value={formData.amount} onChange={handleChange} />
+              <Input name="mobile" type="tel" placeholder="WhatsApp Mobile Number *" value={formData.mobile} onChange={handleChange} />
+              <Input name="amount" type="number" placeholder="Donation Amount (INR) *" value={formData.amount} onChange={handleChange} />
               <Input name="utr" placeholder="UTR / Transaction ID *" value={formData.utr} onChange={handleChange} />
-              <Textarea name="message" placeholder="Message (optional)" value={formData.message} onChange={handleChange} />
-
               <Button onClick={handleSubmit} disabled={loading} className="w-full btn-primary py-5">
-                {loading ? "Submitting..." : "Submit & Get Receipt"}
+                {loading ? "Submitting..." : "Submit & Get WhatsApp Message"}
               </Button>
             </div>
           </div>
 
           <p className="text-center text-xs text-muted-foreground mt-6">
-            Donation receipts are sent via email. Eligible under Section 80G.
+            A thank-you message will be sent to your WhatsApp number. Eligible under Section 80G.
           </p>
         </div>
       </section>

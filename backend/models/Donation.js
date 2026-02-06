@@ -7,12 +7,6 @@ const donationSchema = new mongoose.Schema({
         trim: true,
     },
 
-    email: {
-        type: String,
-        required: true,
-        trim: true,
-    },
-
     amount: {
         type: Number,
         required: true,
@@ -24,15 +18,10 @@ const donationSchema = new mongoose.Schema({
         unique: true,
     },
 
-    receiptNo: {
+    mobile: {
         type: String,
         required: true,
-        unique: true,
-    },
-
-    paymentMethod: {
-        type: String,
-        default: "UPI-QR",
+        trim: true,
     },
 
     createdAt: {

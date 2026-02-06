@@ -4,7 +4,8 @@
  */
 
 const validateDonation = (req, res, next) => {
-    const { name, email, amount, utr } = req.body;
+    const { name, mobile, amount, transactionId, utr } = req.body;
+    const rawTransactionId = transactionId || utr;
     const errors = [];
 
     // Name validation
@@ -12,10 +13,10 @@ const validateDonation = (req, res, next) => {
         errors.push("Name must be at least 2 characters long");
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email || !emailRegex.test(email.trim())) {
-        errors.push("Valid email is required");
+    // Mobile validation
+    const normalizedMobile = typeof mobile === "string" ? mobile.replace(/\D/g, "") : "";
+    if (!normalizedMobile || normalizedMobile.length < 10 || normalizedMobile.length > 15) {
+        errors.push("Valid mobile number is required");
     }
 
     // Amount validation
@@ -27,7 +28,7 @@ const validateDonation = (req, res, next) => {
     }
 
     // Transaction ID validation
-    if (!utr || typeof utr !== "string" || utr.trim().length < 5) {
+    if (!rawTransactionId || typeof rawTransactionId !== "string" || rawTransactionId.trim().length < 5) {
         errors.push("Transaction ID is required and must be at least 5 characters");
     }
 
